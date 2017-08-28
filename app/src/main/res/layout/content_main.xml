@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.shantnu.test.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TextView
+        android:id="@+id/Light_Intensity"
+        android:layout_width="43dp"
+        android:layout_height="68dp"
+        android:layout_marginLeft="8dp"
+        android:text="LIGHT:"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="38dp" />
+
+    <TextView
+        android:id="@+id/Pressure"
+        android:layout_width="55dp"
+        android:layout_height="69dp"
+        android:text="PRESSURE:"
+        tools:layout_editor_absoluteY="38dp"
+        app:layout_constraintLeft_toRightOf="@+id/Light_Intensity"
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/Temperature"
+        android:layout_width="76dp"
+        android:layout_height="67dp"
+        android:layout_marginRight="106dp"
+        android:text="TEMPERATURE:"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="39dp"
+        app:layout_constraintLeft_toRightOf="@+id/Pressure"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/ACCELL"
+        android:layout_width="137dp"
+        android:layout_height="68dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="accelerometer:"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="385dp"
+        app:layout_constraintHorizontal_bias="0.458" />
+</android.support.constraint.ConstraintLayout>
