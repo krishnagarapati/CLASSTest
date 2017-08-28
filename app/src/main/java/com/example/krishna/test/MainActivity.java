@@ -1,5 +1,6 @@
 package com.example.krishna.test;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
@@ -49,7 +50,7 @@ public class MainActivity extends Activity implements SensorEventListener {
     public ArrayList sensorData;
     private LinearLayout layout;
     private View mChart;
-    private LineGraphSeries<DataPoint> seriesAccel, seriesLight,seriesProximity,seriesHumidity;
+    public LineGraphSeries<DataPoint> seriesAccel, seriesLight,seriesProximity,seriesHumidity;
 
     double t= System.currentTimeMillis();
     public TextView tvX,tvY,tvZ,LI,Pro,Hum;
@@ -107,10 +108,21 @@ public class MainActivity extends Activity implements SensorEventListener {
 
         button=(Button)findViewById(R.id.button);
 
+        button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               fn();
+            }
+        });
 
 
 
 
+    }
+
+    public void fn(){
+        Intent intent = new Intent(this,plot.class);
+        startActivity(intent);
     }
 
     /** Called when the activity is first created. */
@@ -180,20 +192,7 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     }
 
-    public void plot(View view ){
-        int count = sensorDataSqrt.size();
-        for(int i = 0; i<count;i++) {
-            //double xdata = (double)sensorDataX.get(i);
-            seriesAccel.appendData(new DataPoint(i,(double)sensorDataSqrt.get(i)), true, count, false);
-            seriesProximity.appendData(new DataPoint(i,(double)sensorDataY.get(i)),true,count,false);
-            seriesLight.appendData(new DataPoint(i,(double)sensorDataX.get(i)),true,count,false);
-            seriesHumidity.appendData(new DataPoint(i,(double)sensorDataZ.get(i)),true,count,false);
-        }
-        graph.addSeries(seriesAccel);
-        graph.addSeries(seriesProximity);
-        graph.addSeries(seriesLight);
-        graph.addSeries(seriesHumidity);
-    }
+
 
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
